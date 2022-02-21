@@ -43,7 +43,6 @@ let input = document.getElementById("input");
 let output = document.getElementById("output");
 let exp = document.getElementById("expl")
 
-
 console.log(input, output);
 let morseOutput;
 
@@ -54,14 +53,22 @@ let calc = () => {
     for (let i = 0; i < tempArr.length; i++) {
         console.log(tempArr[i].toUpperCase());
         for (let j = 0; j < morseAlphabet.length; j++) {
+            if (tempArr[i] == " ") {
+                morseOutput = ` / `;
+
+            }
             if (tempArr[i].toUpperCase() == morseAlphabet[j].letter) {
                 console.log(morseAlphabet[j].morseCode);
                 morseOutput = morseAlphabet[j].morseCode;
-                exp.innerHTML += `${tempArr[i]}=${morseAlphabet[j].morseCode}<br>`;
+                exp.innerHTML += `${tempArr[i]} = ${morseAlphabet[j].morseCode} <br>`;
             }
-        } output.innerHTML += `${morseOutput} `;
+
+        } output.innerHTML += ` ${morseOutput} `;
+
 
         console.log("first outputline: " + morseOutput);
     } //output.innerHTML += `${morseOutput}`;
     console.log("2nd outputline: " + morseOutput);
+    //output.innerHTML += ` ${morseOutput} `;
 }
+
